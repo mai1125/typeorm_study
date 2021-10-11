@@ -1,12 +1,23 @@
 import { Module } from '@nestjs/common';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+// import { AppController } from './app.controller';
+// import { AppService } from './app.service';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Profile } from './entities/profile.entity';
-import { User } from './entities/user.entity';
+// TypeORMのEntities
+import { Profiles } from './entities/profile.entity';
+import { Users } from './entities/user.entity';
+const entities = [Profiles, Users];
 
+// Controllers
+import { ProfileController } from './controller/profile/profile.controller';
+import { UserController } from './controller/user/user.controller';
+const controllers = [ProfileController, UserController];
+
+// Services
+import { ProfileService } from './controller/profile/profile.service';
+import { UserService } from './controller/user/user.service';
+const services = [ProfileService, UserService];
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -16,11 +27,12 @@ import { User } from './entities/user.entity';
       username: 'user',
       password: 'user',
       database: 'demo',
-      entities: [Profile, User],
+      entities: [...entities],
       synchronize: true,
     }),
+    TypeOrmModule.forFeature([...entities]),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [...controllers],
+  providers: [...services],
 })
 export class AppModule {}
