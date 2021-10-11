@@ -1,7 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne } from 'typeorm';
+import { Profile } from '../interface/profile.interface';
+import { User } from '../interface/user.interface';
+import { Users } from './user.entity';
 
 @Entity()
-export class Profiles {
+export class Profiles implements Profile {
   @PrimaryGeneratedColumn()
   id?: number;
 
@@ -10,4 +13,7 @@ export class Profiles {
 
   @Column()
   photo: string;
+
+  @OneToOne(() => Users, (user) => user.profile)
+  user: User;
 }

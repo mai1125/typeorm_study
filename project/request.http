@@ -26,7 +26,11 @@ POST  http://localhost:3333/api/user/create HTTP/1.1
 content-type: application/json
 
 {
-"name":"あおい"
+"name":"あいうえお",
+"profile":{
+    "gender":"men",
+    "photo":"0001.jpg"
+}
 }
 
 ###
