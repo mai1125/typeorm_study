@@ -6,8 +6,8 @@ POST  http://localhost:3333/api/profile/create HTTP/1.1
 content-type: application/json
 
 {
-"gender":"おとこ",
-"photo":"a"
+          "gender":"girl",
+          "photo":"0002.jpeg"
 }
 
 ###
@@ -40,7 +40,21 @@ content-type: application/json
 
 
 
+###
+#-------------------------
+# りぬ create
+#-------------------------
+# Create
+POST  http://localhost:3333/api/rinu/create HTTP/1.1
+content-type: application/json
 
+{
+"name":"あいうえお",
+"profile":{
+    "gender":"men",
+    "photo":"0001.jpg"
+}
+}
 
 
 

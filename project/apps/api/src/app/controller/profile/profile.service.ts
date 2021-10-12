@@ -11,11 +11,11 @@ export class ProfileService {
     private readonly profileRepository: Repository<Profile>
   ) {}
 
-  create(frontdate: Profile) {
-    return this.profileRepository.save(frontdate);
+  create(frontData: Profile): Promise<Profile> {
+    return this.profileRepository.save(frontData);
   }
 
-  read() {
-    return this.profileRepository.findOne();
+  read(): Promise<Profile[]> {
+    return this.profileRepository.find({ relations: ['user'] });
   }
 }

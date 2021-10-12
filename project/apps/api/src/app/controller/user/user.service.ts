@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Profiles } from '../../entities/profile.entity';
@@ -11,18 +11,19 @@ export class UserService {
   constructor(
     @InjectRepository(Users)
     private readonly userRepository: Repository<User>,
+    @Inject(forwardRef(() => ProfileService))
     private profileService: ProfileService
   ) {}
   async create(frontData: User): Promise<User> {
     // プロフィールの登録
-    const profile = new Profiles();
-    profile.gender = frontData.profile.gender;
-    profile.photo = frontData.profile.photo;
-    await this.profileService.create(profile);
+    // const profile = new Profiles();
+    // profile.gender = frontData.profile.gender;
+    // profile.photo = frontData.profile.photo;
+    // await this.profileService.create(profile);
     // Userの登録
     const user = new Users();
     user.name = frontData.name;
-    user.profile = profile;
+    user.profile = frontData.profile;
     return this.userRepository.save(user);
   }
 
