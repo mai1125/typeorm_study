@@ -14,16 +14,20 @@ export class UserService {
     @Inject(forwardRef(() => ProfileService))
     private profileService: ProfileService
   ) {}
+
   async create(frontData: User): Promise<User> {
-    // プロフィールの登録
-    // const profile = new Profiles();
-    // profile.gender = frontData.profile.gender;
-    // profile.photo = frontData.profile.photo;
-    // await this.profileService.create(profile);
-    // Userの登録
+    // 1件目
+    const param1 = new Profiles();
+    param1.url = frontData.profile[0].url;
+    await this.profileService.create(param1);
+    // 2件目
+    const param2 = new Profiles();
+    param2.url = frontData.profile[1].url;
+    await this.profileService.create(param2);
+    //Userの登録
     const user = new Users();
     user.name = frontData.name;
-    user.profile = frontData.profile;
+    user.profile = [param1, param2];
     return this.userRepository.save(user);
   }
 

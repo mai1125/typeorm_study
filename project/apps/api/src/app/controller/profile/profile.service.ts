@@ -11,8 +11,8 @@ export class ProfileService {
     private readonly profileRepository: Repository<Profile>
   ) {}
 
-  create(frontData: Profile): Promise<Profile> {
-    return this.profileRepository.save(frontData);
+  create(data: Profile): Promise<Profile> {
+    return this.profileRepository.save(data);
   }
 
   read(): Promise<Profile[]> {

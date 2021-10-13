@@ -6,10 +6,8 @@ import { User } from './user.interface';
 export interface Profile {
   /**id */
   id?: number;
-  /**性別 */
-  gender: string;
   /**photo */
-  photo: string;
+  url: string;
   //**User */
   user: User;
 }

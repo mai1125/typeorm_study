@@ -9,5 +9,5 @@ export interface User {
   /**名前 */
   name: string;
   /**プロフィール */
-  profile: Profile;
+  profile: Profile[];
 }

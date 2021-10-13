@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 import { Profile } from '../interface/profile.interface';
 import { User } from '../interface/user.interface';
 import { Users } from './user.entity';
@@ -9,11 +15,9 @@ export class Profiles implements Profile {
   id?: number;
 
   @Column()
-  gender: string;
+  url: string;
 
-  @Column()
-  photo: string;
-
-  @OneToOne(() => Users, (user) => user.profile)
+  @ManyToOne(() => Users, (user) => user.profile)
+  @JoinColumn({ name: 'userId' })
   user: User;
 }

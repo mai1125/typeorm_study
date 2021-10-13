@@ -1,10 +1,4 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  OneToOne,
-  JoinColumn,
-} from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Profile } from '../interface/profile.interface';
 import { User } from '../interface/user.interface';
 import { Profiles } from './profile.entity';
@@ -17,7 +11,6 @@ export class Users implements User {
   @Column()
   name: string;
 
-  @OneToOne(() => Profiles, (profile) => profile.user)
-  @JoinColumn()
-  profile: Profile;
+  @OneToMany(() => Profiles, (profile) => profile.user)
+  profile: Profile[];
 }

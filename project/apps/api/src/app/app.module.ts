@@ -12,14 +12,12 @@ const entities = [Profiles, Users];
 // Controllers
 import { ProfileController } from './controller/profile/profile.controller';
 import { UserController } from './controller/user/user.controller';
-import { RinuController } from './controller/rinu/rinu.controller';
-const controllers = [ProfileController, UserController, RinuController];
+const controllers = [ProfileController, UserController];
 
 // Services
 import { ProfileService } from './controller/profile/profile.service';
 import { UserService } from './controller/user/user.service';
-import { RinuService } from './controller/rinu/rinu.service';
-const services = [ProfileService, UserService, RinuService];
+const services = [ProfileService, UserService];
 @Module({
   imports: [
     TypeOrmModule.forRoot({
