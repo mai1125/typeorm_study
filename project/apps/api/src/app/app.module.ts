@@ -7,17 +7,35 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 // TypeORMのEntities
 import { Profiles } from './entities/profile.entity';
 import { Users } from './entities/user.entity';
-const entities = [Profiles, Users];
+import { Categories } from './entities/category.entity';
+import { Questions } from './entities/question.entity';
+const entities = [Profiles, Users, Categories, Questions];
 
 // Controllers
 import { ProfileController } from './controller/profile/profile.controller';
 import { UserController } from './controller/user/user.controller';
-const controllers = [ProfileController, UserController];
+import { CategoryController } from './controller/category/category.controller';
+import { QuestionController } from './controller/question/question.controller';
+
+const controllers = [
+  ProfileController,
+  UserController,
+  CategoryController,
+  QuestionController,
+];
 
 // Services
 import { ProfileService } from './controller/profile/profile.service';
 import { UserService } from './controller/user/user.service';
-const services = [ProfileService, UserService];
+import { CategoryService } from './controller/category/category.service';
+import { QuestionService } from './controller/question/question.service';
+
+const services = [
+  ProfileService,
+  UserService,
+  CategoryService,
+  QuestionService,
+];
 @Module({
   imports: [
     TypeOrmModule.forRoot({
