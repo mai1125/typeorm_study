@@ -5,7 +5,7 @@ import {
   ManyToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Category } from '../interface/category.interface';
+import { Category } from '../../interface/category.interface';
 import { Categories } from './category.entity';
 
 @Entity()

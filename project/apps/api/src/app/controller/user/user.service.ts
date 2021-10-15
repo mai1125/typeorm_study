@@ -1,8 +1,8 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Profiles } from '../../entities/profile.entity';
-import { Users } from '../../entities/user.entity';
+import { Profiles } from '../../typeorm/entities/profile.entity';
+import { Users } from '../../typeorm/entities/user.entity';
 import { User } from '../../interface/user.interface';
 import { ProfileService } from '../profile/profile.service';
 

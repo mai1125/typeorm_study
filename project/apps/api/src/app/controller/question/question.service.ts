@@ -1,8 +1,8 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Categories } from '../../entities/category.entity';
-import { Questions } from '../../entities/question.entity';
+import { Categories } from '../../typeorm/entities/category.entity';
+import { Questions } from '../../typeorm/entities/question.entity';
 import { Question } from '../../interface/question.interface';
 import { CategoryService } from '../category/category.service';
 

@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Profile } from '../interface/profile.interface';
-import { User } from '../interface/user.interface';
+import { Profile } from '../../interface/profile.interface';
+import { User } from '../../interface/user.interface';
 import { Profiles } from './profile.entity';
 
 @Entity()

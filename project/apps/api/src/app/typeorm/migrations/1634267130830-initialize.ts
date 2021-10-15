@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 import { User } from '../../interface/user.interface';
-import { Users } from '../../entities';
+import { Users } from '../entities';
 export class initialize1634267130830 implements MigrationInterface {
   name = 'initialize1634267130830';
 

@@ -1,5 +1,5 @@
 import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Question } from '../interface/question.interface';
+import { Question } from '../../interface/question.interface';
 import { Questions } from './question.entity';
 
 @Entity()

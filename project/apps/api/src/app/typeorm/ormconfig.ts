@@ -1,5 +1,5 @@
 import { ConnectionOptions } from 'typeorm';
-import * as entities from '../entities';
+import * as entities from './entities';
 
 const TypeOrmOptions: ConnectionOptions = {
   type: 'mysql',

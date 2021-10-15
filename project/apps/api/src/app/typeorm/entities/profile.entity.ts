@@ -5,8 +5,8 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
-import { Profile } from '../interface/profile.interface';
-import { User } from '../interface/user.interface';
+import { Profile } from '../../interface/profile.interface';
+import { User } from '../../interface/user.interface';
 import { Users } from './user.entity';
 
 @Entity()
