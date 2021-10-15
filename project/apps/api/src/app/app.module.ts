@@ -1,17 +1,5 @@
 import { Module } from '@nestjs/common';
-
-// import { AppController } from './app.controller';
-// import { AppService } from './app.service';
-
-import { TypeOrmModule } from '@nestjs/typeorm';
-import TypeOrmOptions from './typeorm/entities/ormconfig';
-
-// TypeORMのEntities
-import { Profiles } from './entities/profile.entity';
-import { Users } from './entities/user.entity';
-import { Categories } from './entities/category.entity';
-import { Questions } from './entities/question.entity';
-const entities = [Profiles, Users, Categories, Questions];
+import { TypeOrmModule } from './typeorm/typeorm.module';
 
 // Controllers
 import { ProfileController } from './controller/profile/profile.controller';
@@ -39,10 +27,7 @@ const services = [
   QuestionService,
 ];
 @Module({
-  imports: [
-    TypeOrmModule.forRoot(TypeOrmOptions),
-    TypeOrmModule.forFeature([...entities]),
-  ],
+  imports: [TypeOrmModule],
   controllers: [...controllers],
   providers: [...services],
 })

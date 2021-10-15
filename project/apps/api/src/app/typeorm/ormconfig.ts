@@ -9,7 +9,12 @@ const TypeOrmOptions: ConnectionOptions = {
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
   synchronize: true,
+  migrationsRun: true,
   entities: Object.values(entities),
+  migrations: [__dirname + '/migrations/*.ts'],
+  cli: {
+    migrationsDir: __dirname + '/migrations',
+  },
 };
 
 export default TypeOrmOptions;

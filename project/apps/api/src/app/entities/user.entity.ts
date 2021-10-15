@@ -12,5 +12,5 @@ export class Users implements User {
   name: string;
 
   @OneToMany(() => Profiles, (profile) => profile.user)
-  profile: Profile[];
+  profile?: Profile[];
 }
