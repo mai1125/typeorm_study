@@ -4,7 +4,7 @@ import { Module } from '@nestjs/common';
 // import { AppService } from './app.service';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
-import TypeOrmOptions from './typeorm/entities/ormconfig';
+import TypeOrmOptions from './ormconfig';
 
 // TypeORMのEntities
 import { Profiles } from './entities/profile.entity';
@@ -46,4 +46,4 @@ const services = [
   controllers: [...controllers],
   providers: [...services],
 })
-export class AppModule {}
+export class TypeOrmModule {}
